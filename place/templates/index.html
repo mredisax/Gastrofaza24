@@ -28,7 +28,7 @@
         {% endif %}
         <div class="card-body">
           <h5 class="card-title">{{place.name}}</h5>
-          <a href="/lokal/{{ place.id }}" class="btn btn-primary center-block">Sprawdź</a>
+          <a href="/lokal/{{ place.slug }}/{{place.id}}" class="btn btn-primary center-block">Sprawdź</a>
       </div>
     </div>
 {% endfor %}

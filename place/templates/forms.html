@@ -1,26 +1,26 @@
 {% extends "header.html" %}
 {% load static %}
 {% block content %}
-  <div class="container">
+{% if user.is_authenticated %}
+<div class="container bg-white">
   {% load crispy_forms_tags%}
-
-    <h2>New</h2>
-    <form method="POST" class="post-form">
+  &nbsp
+  <h2 class="text-center">Dodaj lokal</h2>
+  <hr>
+  <form method="POST" class="post-form">
     {% csrf_token %}
-      {{forms|crispy}}
-        
-        <button type="submit" class="save btn btn-default">Save</button>
-    </form>
-    
-<script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-    <script src="{%static 'dynamic_formsets/jquery.formset.js'%}" type="text/javascript"></script>
-    <script type="text/javascript">
-      
-        $('#individual').formset();
-    </script>
-{% endblock %}
+    {{form|crispy}}
+    <button type="submit" class="save btn btn-primary">Save</button>
+  </form>
 </div>
+{% else %}
+<div class="container">
+  <div class="col-md-12 bg-white text-center">
+    <div class="top-box"><h1>Aby dodać lokal zaloguj się za pomoca social mediów</h1></div>
+  </div>
+</div>
+{% endif %}
+
+{% endblock %}
+
 </body>

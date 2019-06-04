@@ -43,6 +43,7 @@ body{
   border-bottom: 1px solid #dee2e6;
 }
 /*LOGI PAGE */
-.login{
+.top-box{
   margin-top: 10%!important;
+  padding: 30px!important;
 }

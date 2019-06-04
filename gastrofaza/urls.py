@@ -23,6 +23,7 @@ urlpatterns = [
     re_path(r'^', include('place.urls')),
     re_path(r'^lokal/', include('place.urls')),
     re_path(r'^accounts/', include('django.contrib.auth.urls')),
+    re_path(r'^auth/', include('social_django.urls', namespace='social')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

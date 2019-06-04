@@ -1,0 +1,1 @@
+<a href="/dodaj/menu/{{place.id}}/update" class="btn btn-primary center-block">Sprawdź</a>

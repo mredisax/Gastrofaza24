@@ -1,8 +1,11 @@
 from django.db import models
 from django.urls import reverse
+from django.utils.text import slugify
+from unidecode import unidecode
 
 class Place(models.Model):
     name = models.CharField('Nazwa lokalu', max_length=200)
+    slug = models.SlugField('Link', max_length=300, default='', blank=True)
     img = models.ImageField('Zdjęcie Lokalu', upload_to='Place/static/locals/img', blank=True, max_length=500)
     address = models.CharField('Adres', max_length=1000)
     number_phone = models.CharField('Numer telefonu', max_length=26)
@@ -14,8 +17,22 @@ class Place(models.Model):
     class Meta:
         verbose_name = 'Lokal'
         verbose_name_plural = 'Lokale'
+        
+    def get_absolute_url(self):
+        kwargs = {
+            'pk': self.id,
+            'slug': self.slug
+        }
+        return reverse("place_list_view", kwargs=kwargs)
+
+    def save(self, *args, **kwargs):
+        value = self.name
+        self.slug = slugify(unidecode(value))
+        super(Place, self).save(*args, **kwargs)
+    
     def __str__(self):
         return self.name
+    
 
 class Menu(models.Model):
     place = models.ForeignKey(Place, related_name='place', on_delete=models.CASCADE)
