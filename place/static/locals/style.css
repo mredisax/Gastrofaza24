@@ -4,9 +4,13 @@ body{
   color: #363639!important;
   margin-bottom: 3rem!important;
 }
-
-
-
+#navbarNavAltMarkup {
+    font-weight: 650;
+    text-align: center;
+}
+h1{
+  color: #c93939;
+}
 .carousel-item.active{
   max-height: 500px!important;
 }
@@ -33,7 +37,7 @@ body{
 }
 
 .navbar-brand{
-  max-width: 80%!important;
+  max-width: 75%!important;
 }
 .navbar-brand > img{
   width: 100%!important;
@@ -46,4 +50,91 @@ body{
 .top-box{
   margin-top: 10%!important;
   padding: 30px!important;
+}
+
+.card-img-top{
+  max-height: 180px!important;
+}
+.dish_title{
+  font-size:18px;
+  font-weight:700;
+  color: #c93939;
+}
+.fa-info-circle {
+  position: absolute;
+  font-size: 30px;
+  color: green;
+  padding: 8px;
+}
+
+/*Return to top */
+#button {
+  display: inline-block;
+  background-color: #FF9800;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color .3s, 
+    opacity .5s, visibility .5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+#button::after {
+  content: "\f077";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: #fff;
+}
+#button:hover {
+  cursor: pointer;
+  background-color: #333;
+}
+#button:active {
+  background-color: #555;
+}
+#button.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Styles for the content section */
+
+.content {
+  width: 77%;
+  margin: 50px auto;
+  font-family: 'Merriweather', serif;
+  font-size: 17px;
+  color: #6c767a;
+  line-height: 1.9;
+}
+@media (min-width: 500px) {
+  .content {
+    width: 43%;
+  }
+  #button {
+    margin: 30px;
+  }
+}
+
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+	.carousel-caption{
+    		top:10%;
+	}
+	.main-banner-text{
+    		font-size: 1.5rem;
+	}
+	.card-img-top{
+		max-height: 185px!important;
+	}
+
 }

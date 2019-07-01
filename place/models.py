@@ -13,6 +13,7 @@ class Place(models.Model):
     news = models.TextField('Aktualności', default='', blank=True, max_length=2000)
     maps = models.CharField('Mapa', default='',blank=True, max_length=1000)
     status = models.BooleanField('Opublikuj', default=False)
+    description = models.TextField("Opis i Informacje", default='', blank=True, max_length=3000)
     
     class Meta:
         verbose_name = 'Lokal'
@@ -43,6 +44,9 @@ class Menu(models.Model):
     salatki = 'Sałatki'
     napoje = 'Napoje'
     inne = 'Inne'
+    multi = 'rozmiar i cenna'
+    zestaw_obiadowy = 'zestaw obiadowy'
+    zapiekanki = 'zapiekanki'
     cat_dish = (
         (pizza, 'Pizza'),
         (kebab, 'Kebab'),
@@ -51,6 +55,9 @@ class Menu(models.Model):
         (salatki, 'Sałatki'),
         (napoje, 'Napoje'),
         (inne, 'Inne'),
+        (multi, 'rozmiar i cenna'),
+        (zestaw_obiadowy, 'zestaw obiadowy'),
+        (zapiekanki, 'zapiekanki'),
     )
     dish = models.CharField('Nazwa Potrawy', blank=True, max_length=200)
     dish_components = models.CharField("Składniki", blank=True, default="", max_length=1200)

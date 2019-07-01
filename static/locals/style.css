@@ -4,9 +4,13 @@ body{
   color: #363639!important;
   margin-bottom: 3rem!important;
 }
-
-
-
+#navbarNavAltMarkup {
+    font-weight: 650;
+    text-align: center;
+}
+h1{
+  color: #c93939;
+}
 .carousel-item.active{
   max-height: 500px!important;
 }
@@ -33,7 +37,7 @@ body{
 }
 
 .navbar-brand{
-  max-width: 80%!important;
+  max-width: 75%!important;
 }
 .navbar-brand > img{
   width: 100%!important;
@@ -43,6 +47,39 @@ body{
   border-bottom: 1px solid #dee2e6;
 }
 /*LOGI PAGE */
-.login{
+.top-box{
   margin-top: 10%!important;
+  padding: 30px!important;
+}
+
+.card-img-top{
+  max-height: 180px!important;
+}
+.dish_title{
+  font-size:18px;
+  font-weight:700;
+  color: #c93939;
+}
+.fa-info-circle {
+  position: absolute;
+  font-size: 30px;
+  color: green;
+  padding: 8px;
+}
+
+
+
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+	.carousel-caption{
+    		top:10%;
+	}
+	.main-banner-text{
+    		font-size: 1.5rem;
+	}
+	.card-img-top{
+		max-height: 185px!important;
+	}
+
 }

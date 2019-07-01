@@ -10,19 +10,26 @@
         {% else %}
         <img src="{%static 'locals/img/baner.png'%}" width="100%" class="mr-3" alt="Brak zdjęcia lokalu">
         {% endif %}
+        &nbsp
+        <h5>Opis</h5>
+        {% if place.description %}
+        <p>{{place.description}}</p>
+        {% else %}
+        <p>Brak opisu</p>
+        {% endif %}
+        
       </div>
       <div class="col-md-4">
         <div class="media-body text-center">
-        &nbsp
-          <h1 class="mt-0 text-center">{{place.name}}</h1>
+          &nbsp
+          <h1 class="mt-0 text-center"><i class="fas fa-utensils"></i> {{place.name}}</h1>
           <hr>
-          <h3>Godziny Otwarcia:</h3>
+          <h3><i class="far fa-hourglass"></i> Godziny Otwarcia:</h3>
           <ul style="list-style-type: none;">
-            <li>{{place.hours}}</li>
+            <li>{{place.hours | linebreaksbr}}</li>
           </ul>
-          <h5>Numer Telefonu: {{place.number_phone}}</h5>
+          <h5><i class="fas fa-mobile-alt"></i> Numer Telefonu: {{place.number_phone}}</h5>
           {% if place.news == '' %}
-
           {% else %}
           <div class="alert alert-success" role="alert">
             <h4 class="alert-heading">Informacje</h4>
@@ -34,15 +41,19 @@
       </div>
     </div>
     <div class="place-menu-lists">
-    &nbsp
-      <h4>Menu</h4>
       &nbsp
+      <h4>Menu</h4>
+      <hr style="background:#c93939;">
       <ul class="list-group">
-      {% for m in menu %}
+        {% for m in menu %}
         <li class="list-group-item list-group-item-action">
-        <span style="font-size:18px; font-weight:700">{{m.dish}} <small>{{m.dish_category}}</small></span>
-        <p>{{m.dish_components}}</p>
-        <span>{{m.price}} zł</span>
+          <span class="dish_title">{{m.dish}} <small style="color:black">{{m.dish_category}}</small></span>
+          <p>{{m.dish_components}}</p>
+          {% if m.pizza_price == "" %}
+          <span>{{m.price}} zł</span>
+          {% else %}
+          <span>{{m.pizza_price}}</span>
+          {% endif %}
         </li>
         {% endfor %}
       </ul>
@@ -56,21 +67,12 @@
     </p>
     <div class="collapse" id="collapseExample">
       <div class="card card-body">
-        <iframe src="{{place.maps}}" width="100%%" height="500"></iframe>
+        <iframe src="{{place.maps}}" width="100%" height="500"></iframe>
       </div>
     </div>
   </div>
   {% endblock %}
 </section>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-</script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-</script>
 </body>
 
 </html>

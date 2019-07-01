@@ -12,6 +12,7 @@ class MenuInline(admin.TabularInline):
 class PlaceAdmin(admin.ModelAdmin):
     exclude = ('autor',)
     inlines = [MenuInline]
+    list_display =('name', 'status')
     search_fields = ['']
     list_per_page = 10
     formfield_overrides = {

@@ -21,10 +21,13 @@
   <div class="card-columns text-center">
   {% for place in places  %}
     <div class="card">
+    {% if place.news %}
+     <i class="fas fa-info-circle" alt="Nowa wiadomość lokalu" title="Nowa wiadomość lokalu"></i>
+    {% endif %}
       {% if place.img %}
         <img class="card-img-top" src="{{ place.img.url}}" alt="Card image cap">
         {% else %}
-        <img class="card-img-top" src="{%static 'locals/img/baner.png'%}" alt="Card image cap">
+        <img class="card-img-top" src="{%static 'locals/img/blank.png'%}" alt="Card image cap">
         {% endif %}
         <div class="card-body">
           <h5 class="card-title">{{place.name}}</h5>
@@ -45,5 +48,4 @@
   integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 </script>
 </body>
-
 </html>

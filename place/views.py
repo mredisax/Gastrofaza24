@@ -1,11 +1,12 @@
-from django.shortcuts import render, get_object_or_404, redirect, HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404, redirect, HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from .models import Place, Menu
-from .forms import PlaceForm, MenuForm
+from .forms import PlaceForm, MenuForm, AboutForm
 from django.forms import formset_factory, inlineformset_factory
 from django.core.mail import send_mail, EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.contrib.auth.models import User
+
 
 def homepage_view(request):
     places = Place.objects.filter(status = True)
@@ -17,10 +18,10 @@ def homepage_view(request):
 def place_list_view(request,slug, id):
     query_pk_and_slug = True
     place = Place.objects.get(id=id, slug=slug)
-    menu = Menu.objects.filter(place_id=id)
+    menu = Menu.objects.filter(place_id=id).order_by('-dish_category', 'id')
     context = {
        'place' : place,
-       'menu' : menu
+       'menu' : menu,
     }
     return render(request, "place_list.html", context)
 
@@ -37,7 +38,7 @@ def place_create_view(request, id=id):
             send_mail(
                 'Dodaj Menu',
                 text_msg, 
-                'kontakt@gastrofaza24.pl', 
+                'kontakt@poczta.gastrofaza24.pl', 
                 [useremail],
                 html_message=html_msg,
                 )
@@ -49,7 +50,7 @@ def place_create_view(request, id=id):
 
 def menu_create_view(request, id=id):
     obj = get_object_or_404(Place, id=id)
-    MenuFormset = inlineformset_factory(Place, Menu, can_delete=True, fields=('dish','dish_components', 'price',),extra=1)
+    MenuFormset = inlineformset_factory(Place, Menu, can_delete=True, fields=('dish','dish_components', 'price',),extra=1, max_num=9000)
     form = PlaceForm(request.POST or None, instance=obj)
     if request.method == 'POST':
         formset = MenuFormset(request.POST, instance=obj)
@@ -66,3 +67,24 @@ def menu_create_view(request, id=id):
     }
     return render(request, "menu_add.html", context)
 
+def place_about_view(request):
+    form = AboutForm(request.POST)
+    if form.is_valid():
+        temat = form.cleaned_data['temat']
+        email = form.cleaned_data['email']
+        wiadomosc = form.cleaned_data['wiadomosc']
+        try:
+            send_mail(temat, wiadomosc, email, ['kontakt@poczta.gastrofaza24.pl'])
+        except:
+            return HttpResponse('Błąd')
+        return render(request, 'success.html')
+    else:
+        form = AboutForm()
+    return render(request, "about.html", {'form': form})
+
+
+def handler404(request):
+    return render(request, '404.html', status=404)
+
+def handler500(request):
+    return render(request, '500.html', status=500)
