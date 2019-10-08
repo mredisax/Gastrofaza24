@@ -2,7 +2,7 @@ beautifulsoup4==4.7.1
 certifi==2019.3.9
 chardet==3.0.4
 defusedxml==0.6.0
-Django==2.2.2
+django>=2.2.4
 django-crispy-forms==1.7.2
 django-livereload==1.7
 django-recaptcha==2.0.4
