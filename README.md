@@ -7,7 +7,7 @@
 
 
 ### Tech
--Django
--crispy_forms
--captcha(optional)
--social_django(optional)
+- Django
+- crispy_forms
+- captcha(optional)
+- social_django(optional)
