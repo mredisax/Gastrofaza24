@@ -1,0 +1,94 @@
+body{
+  background: #f2ebe0!important;
+  font-family: 'Work Sans', sans-serif; 
+  color: #363639!important;
+  margin-bottom: 3rem!important;
+}
+.container{
+  padding-bottom: 5px ;
+}
+
+.carousel-item.active{
+  max-height: 500px!important;
+}
+.main-banner-text{
+  background: rgba(235,240,246,0.85);
+  color: #363639;
+  font-weight: 900;
+  font-size: 2rem;
+  letter-spacing:0.1em;
+  padding: 30px 25px;
+
+}
+.carousel-caption{
+  top:40%;
+}
+
+.place-menu{
+  background: #fff;
+  padding: 1rem;
+}
+
+.place-menu-list{
+  margin: 1.5rem 0 0 0;
+}
+
+.navbar-brand{
+  max-width: 80%!important;
+}
+.navbar-brand > img{
+  width: 100%!important;
+}
+#bg-nav{
+  background: #fff;
+  border-bottom: 1px solid #dee2e6;
+}
+/*LOGI PAGE */
+.top-box{
+  margin-top: 10%!important;
+  padding: 30px!important;
+}
+
+#christmas{
+  height: 25vh;
+  position: fixed;
+  left: 1px;
+  bottom: -10px;
+  transition-delay: 1s;  
+}
+.fixed_button{
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  padding: 5px;
+  background-color: #0c5460;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.save{
+  width: 50%;
+}
+.form_button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+}
+
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+.carousel-caption{
+    top:10%
+}
+.main-banner-text{
+    font-size: 1.5rem;
+}
+.card-img-top{
+max-height: 185px!important;
+}
+
+}

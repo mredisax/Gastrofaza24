@@ -4,13 +4,9 @@ body{
   color: #363639!important;
   margin-bottom: 3rem!important;
 }
-#navbarNavAltMarkup {
-    font-weight: 650;
-    text-align: center;
-}
-h1{
-  color: #c93939;
-}
+
+
+
 .carousel-item.active{
   max-height: 500px!important;
 }
@@ -37,7 +33,7 @@ h1{
 }
 
 .navbar-brand{
-  max-width: 75%!important;
+  max-width: 80%!important;
 }
 .navbar-brand > img{
   width: 100%!important;
@@ -52,34 +48,46 @@ h1{
   padding: 30px!important;
 }
 
-.card-img-top{
-  max-height: 180px!important;
+#christmas{
+  height: 25vh;
+  position: fixed;
+  left: 1px;
+  bottom: -10px;
+  transition-delay: 1s;  
 }
-.dish_title{
-  font-size:18px;
-  font-weight:700;
-  color: #c93939;
-}
-.fa-info-circle {
-  position: absolute;
-  font-size: 30px;
-  color: green;
-  padding: 8px;
+.fixed_button{
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  padding: 5px;
+  background-color: #0c5460;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.save{
+  width: 50%;
+}
+.form_button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 
-
+}
 
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
-	.carousel-caption{
-    		top:10%;
-	}
-	.main-banner-text{
-    		font-size: 1.5rem;
-	}
-	.card-img-top{
-		max-height: 185px!important;
-	}
+.carousel-caption{
+    top:10%
+}
+.main-banner-text{
+    font-size: 1.5rem;
+}
+.card-img-top{
+max-height: 185px!important;
+}
 
 }

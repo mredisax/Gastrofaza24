@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  {% block title %}<title>Gastrofaza</title>{% endblock %}
+  <meta name="description" content="Strona, na której znajdziesz swoje ulubione lokale w okolicy Lubaczowa">
+  <meta name="keywords" content="Lubaczów, Lokale, Restauracje, U-Turka, U-Włocha, pizzalubaczow, kebab">
+  <meta name="author" content="Jakub Bauman">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="HandheldFriendly" content="true">
+  <meta http-equiv="X-Ua-Compatible" content="IE=edge,chrome=1">
+  <link rel="stylesheet" type="text/css" href="{% static 'locals/style.css' %}">
+  <link rel="shortcut icon" href="{% static 'locals/img/favicon.png' %}" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <!--Google ads-->
+  <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+  <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+  <script data-ad-client="ca-pub-3358795705981121" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141805098-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-141805098-1');
+  </script>
+</head>
+<body>
+  <header id="bg-nav">
+    <div class="container">
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs justify-content-end" id="navId">
+        <li class="nav-item">
+          {% if user.is_authenticated %}
+        {% comment %} <li class="nav-link"><i class="fas fa-user"></i> {{ user.username }}</li> {% endcomment %}
+        <li class="nav-link">
+          {% comment %} <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Wyloguj</a> {% endcomment %}
+        </li>
+        {% else %}
+        <li class="nav-link">
+          {% comment %} <a href="{% url 'social:begin' 'google-oauth2' %}"><i class="fas fa-sign-in-alt"></i> Zaloguj <i class="fab fa-google-plus-square"></i></a> {% endcomment %}
+        </li>
+        {% endif %}
+        </li>
+      </ul>
+      <nav class="navbar bg-white navbar-expand-lg navbar-light justify-content-between sticky-top">
+        <a class="navbar-brand" href="/">
+          <img src="{%static 'locals/img/logo.png'%}">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+          <div class="navbar-nav nav-spacing">
+            <a class="nav-item nav-link text-primary" href="/dodaj">DODAJ LOKAL</a>
+            <a class="nav-item nav-link text-primary" href="/informacje">O NAS</a>
+            <a class="nav-item nav-link text-primary" href="#"></a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <a id="button"></a>
+  {% block content%}
+  {% endblock%}
+
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+  <script>
+    var btn = $('#button');
+    $(window).scroll(function () {
+      if ($(window).scrollTop() > 300) {
+        btn.addClass('show');
+      } else {
+        btn.removeClass('show');
+      }
+    });
+
+    btn.on('click', function (e) {
+      e.preventDefault();
+      $('html, body').animate({
+        scrollTop: 0
+      }, '300');
+    });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>

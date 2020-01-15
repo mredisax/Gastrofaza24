@@ -1,0 +1,32 @@
+{% extends "header.html" %}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="container bg-white">
+  {% load crispy_forms_tags%}
+  &nbsp
+  <h2 class="text-center">Dodaj lokal</h2>
+  <hr>
+  <form method="POST" class="post-form">
+    {% csrf_token %}
+    {{form|crispy}}
+    {% comment %} <script src='https://www.google.com/recaptcha/api.js'></script>
+    <div class="g-recaptcha" data-sitekey="6LfSU6gUAAAAALyAP7CjS4fS4rhDQmBrfme19l-K"></div> {% endcomment %}
+    <div class="form_button">
+    <button type="submit" class="save btn btn-primary">Wyślij</button>
+    </div>
+  </form>
+</div>
+{% else %}
+<div class="container">
+  <div class="col-md-12 bg-white text-center">
+    <div class="top-box">
+      <h1>Aby dodać lokal zaloguj się za pomoca social mediów</h1>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% endblock %}
+
+</body>

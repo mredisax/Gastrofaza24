@@ -1,0 +1,24 @@
+{% extends "header.html" %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags%}
+<div class="container bg-white">
+<div class="text-center top-box">
+<p class="font-weight-bold">Strona Gastrofaza24 powstała, aby mogli Państwo cieszyć się mobilną dostępnością do swoich ulubionych lokali w okolicy. Dzięki nam można sprawdzić godziny otwarcia lokali, menu, a także adres z mapą gdzie znajduję się dany lokal. Strona ciągle jest na etapie rozwoju. Z góry dziękujemy za korzystanie z naszej strony. Jeżeli popierasz takie inicjatywy jak ta strona, możesz nas wesprzeć. Wszelkie zebrane środki zostaną przeznaczone na pokrycie kosztów utrzymania serwisu.</p>
+
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick" />
+<input type="hidden" name="hosted_button_id" value="Q9NF2HL8XZLQC" />
+<input type="image" src="https://www.paypalobjects.com/pl_PL/PL/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+<img alt="" border="0" src="https://www.paypal.com/pl_PL/i/scr/pixel.gif" width="1" height="1" />
+</form>
+</div>
+    <form method="POST">
+        {% csrf_token %}
+        {{form|crispy}}
+        <div class="form_button">
+        <button type="submit" class="save btn btn-primary">Wyślij</button>
+        </div>
+    </form>
+    {% endblock %}
+    </body>
