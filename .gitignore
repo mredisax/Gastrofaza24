@@ -6,4 +6,5 @@ db.sqlite3
 .DS_Store
 gastrofaza/local_settings.py
 .gitignore
+.gitattributes
 /static
