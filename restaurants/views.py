@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect, HttpResponseRedirect, HttpResponse
-from .models import Place, Menu
-from .forms import PlaceForm, MenuForm, AboutForm
+from restaurants.models import Place, Menu
+from restaurants.forms import PlaceForm, MenuForm, AboutForm
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.contrib.auth.models import User

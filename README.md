@@ -13,7 +13,7 @@ Dillinger uses a number of open source projects to work properly:
 * captcha(optional)
 * social_django(optional)
 
-### Installation
+### Installation without Docker only virtualenv
 
 How to run this project on local machine
 
@@ -31,6 +31,19 @@ $ python manage.py runserver
 
 If you want set up this project on the server I recommend you guide from [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-18-04)
 
+### Docker Installation
+Directory tree (You need change your directory like that)
+
+    ├── DockerApp 
+        ├── nginx
+        ├── .env.proxy-companion 
+        ├── .env
+        ├── .env.db
+        └── Gastrofaza24
+            ├── Dockerfile
+            ├── gastrofaza
+            ├── restaurants
+            └── manage.py
 
 
 ### Todos

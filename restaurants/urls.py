@@ -1,6 +1,10 @@
 from django.urls import re_path, path
 from . import views
-from .views import *
+from restaurants.views import homepage_view, \
+                        place_about_view, \
+                        place_create_view, \
+                        place_list_view, \
+                        menu_create_view
 
 
 urlpatterns = [
