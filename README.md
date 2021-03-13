@@ -6,7 +6,7 @@ My first django app with information about local restaurants in my family city
 
 ### Tech
 
-Dillinger uses a number of open source projects to work properly:
+App uses a number of open source projects to work properly:
 
 * Django - Django
 * crispy_forms
